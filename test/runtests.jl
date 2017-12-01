@@ -1,5 +1,4 @@
 using AdventOfCode2017
 using Base.Test
 
-# write your own tests here
-@test 1 == 2
+@test puzzle01() == [1203, 1146]
