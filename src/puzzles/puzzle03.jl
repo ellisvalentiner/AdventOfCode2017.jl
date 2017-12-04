@@ -1,27 +1,9 @@
 
-function nextcoord(coord, maxsteps)
-    x, y = coord
-    if x==y
-        x += 1
-    elseif
-        y += 1
-    else
-        x
-    end
-end
-
-function adjacentcoords(coords)
-    coords
-end
-
-location = (0, 0, 1)
-
-
-function puzzle03(x::Int=325489)
-    L = iseven(Int(ceil(√x))) ? ceil(√x)  + 1 : ceil(√x)
+function puzzle03(input::Int=325489)
+    L = iseven(Int(ceil(√input))) ? ceil(√input)  + 1 : ceil(√input)
     corners = L^2 - (0:3)*(L-1)
     width = floor(L/2)
-    height = minimum(abs.((x+width)-corners))
+    height = minimum(abs.((input+width)-corners))
     partone = Int(height + width)
 
     # initialize matrix
@@ -29,10 +11,10 @@ function puzzle03(x::Int=325489)
     coords = [(0, 0, 1)]
     direction = ["right", "up", "left", "down"]
     steps = 1
-    while true
+    notfound = true
+    while notfound
         for s in 1:steps
             x, y, v = last(coords)
-            println("Moving $(first(direction))")
             if first(direction) == "right"
                 x += 1
             elseif first(direction) == "up"
@@ -42,17 +24,20 @@ function puzzle03(x::Int=325489)
             elseif first(direction) == "down"
                 y -= 1
             end
-            v += 1
+            neighbors = reshape([(x+xx,y+yy) for xx=-1:1, yy=-1:1], 9)
+            v = sum([x[3] for x in coords if x[1:2] in neighbors])
             append!(coords, [(x, y, v)])
+            if v > input
+                notfound = false
+                break
+            end
         end
         direction = circshift(direction, -1)
         if first(direction) in ["left", "right"]
             steps += 1
         end
-        if steps > 4
-            break
-        end
     end
+    parttwo = last(coords)[3]
 
     return [partone, parttwo]
 end

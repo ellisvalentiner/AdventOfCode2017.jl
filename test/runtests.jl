@@ -7,4 +7,4 @@ end
 
 @test puzzle01() == [1203, 1146]
 @test puzzle02() == [32020, 236]
-@test puzzle03() == [552,]
+@test puzzle03() == [552, 330785]
