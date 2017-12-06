@@ -1,11 +1,13 @@
 
-Base.circshift(s::String, shift::Int) = reduce(*, circshift(split(s, ""), shift))
-splitshift(s::String, shift::Int) = split(circshift(s, shift), "")
+function _f(a::String, offset::Int)
+    x = split(a, "")
+    y = circshift(x, offset)
+    z = sum(parse.(Int, x[x .== y]))
+    return z
+end
 
 function puzzle01(path::String=joinpath(@__DIR__, "..", "data/01.txt"))
     input = readline(normpath(path))
-    x = split(input, "")
-    y = splitshift.(input, [1, Int(length(input)/2)])
-    solution = sum.(map(_x->parse.(Int, x[x.==_x]), y))
+    solution = _f.(input, [1, Int(length(input)/2)])
     return solution
 end
