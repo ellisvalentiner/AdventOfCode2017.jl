@@ -1,19 +1,11 @@
 
-function _findcycleindex(a::Array)
-    n = size(a, 1)
-    lastrow = a[n, :]
-    for row in collect((n-1):-1:2)
-        if lastrow == a[row, :]
-            return n - row
-        end
-    end
-end
-
 function puzzle06(path::String=joinpath(@__DIR__, "..", "data/06.txt"))
     data = readdlm(path, Int)
     n = size(data, 2)
-    configurations = zeros(Int, (size(data)))
+    configurations = Dict()
     notfound = true
+    iter = 1
+
     while notfound
         val, pos = findmax(data)
 
@@ -25,16 +17,18 @@ function puzzle06(path::String=joinpath(@__DIR__, "..", "data/06.txt"))
             data[i] += 1
         end
 
-        for row = 1:size(configurations, 1)
-            if data[1,:] == configurations[row,:]
-                notfound = false
-                break
-            end
-        end
-        configurations = vcat(configurations, data)
-    end
-    partone = size(configurations, 1) - 1
-    parttwo = _findcycleindex(configurations)
+        dhash = hash(data)
 
-    return [partone, parttwo]
+        if haskey(configurations, dhash)
+            notfound = false
+            partone = iter
+            parttwo = iter - configurations[dhash]
+            return [partone, parttwo]
+        end
+
+        configurations[dhash] = iter
+        iter += 1
+
+    end
+
 end
