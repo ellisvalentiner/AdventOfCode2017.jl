@@ -18,7 +18,7 @@ function puzzle09(path::String=joinpath(@__DIR__, "..", "data/09.txt"))
             stream[idx] == '>' ? isgarbage = false : noncanceled += 1
         elseif stream[idx] == '{'
             groups += 1
-            append!(arr, cscore)
+            append!(arr, groups)
         elseif stream[idx] == '<'
             isgarbage = true
         elseif stream[idx] == '}'
