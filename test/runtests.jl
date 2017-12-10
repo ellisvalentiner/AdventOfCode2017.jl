@@ -11,3 +11,4 @@ end
 @test puzzle04() == [386, 208]
 @test puzzle05() == [360603, 25347697]
 @test puzzle06() == [3156, 1610]
+@test puzzle08() == [6343, 7184]
