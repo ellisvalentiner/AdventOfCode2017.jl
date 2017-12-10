@@ -20,12 +20,14 @@ end
 
 
 ````
-AdventOfCode2017.puzzle01:  0.000006 seconds (83 allocations: 6.092 KiB)
+AdventOfCode2017.puzzle01:  0.000003 seconds (83 allocations: 6.092 KiB)
 AdventOfCode2017.puzzle02:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle03:  0.000001 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle03:  0.000000 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle04:  0.000001 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle05:  0.000000 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle06:  0.000000 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle08:  0.000001 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle09:  0.000000 seconds (3 allocations: 144 bytes)
 ````
 
 
