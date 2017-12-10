@@ -4,7 +4,7 @@ module AdventOfCode2017
 
 root = Pkg.dir("AdventOfCode2017")
 files = [x for x in readdir(joinpath(root, "src/puzzles")) if splitext(x)[2]==".jl"]
-include.(joinpath.("puzzles/", files))
+include.(joinpath.(root, "src/puzzles/", files))
 for file in first.(splitext.(files))
     func = Symbol(file)
     @eval export $func
