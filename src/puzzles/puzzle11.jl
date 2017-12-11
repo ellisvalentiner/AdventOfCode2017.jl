@@ -8,7 +8,7 @@ x = Dict(
     "nw" => [-1, 1, 0]
 )
 
-cube_distance(a::Array{Int64,1}) = Int(sum(abs(a))/2)
+cube_distance(a::Array{Int64,1}) = Int(sum(abs.(a))/2)
 
 function puzzle11(path::String=joinpath(@__DIR__, "..", "data/11.txt"))
     instructions = readdlm(path, ',')

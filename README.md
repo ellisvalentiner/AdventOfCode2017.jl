@@ -22,13 +22,15 @@ for puzzle in filter(x->x≠:AdventOfCode2017, names(AdventOfCode2017, false))
         table = vcat(table, row)
     end
 end
-table = vcat(table, ["**Median**" median(table[2:end, 2:end], 1)])
-table = vcat(table, ["**Total**" sum(table[2:end, 2:end], 1)])
+table = vcat(table, [md"**Median**" median(table[2:end, 2:end], 1)])
+table = vcat(table, [md"**Total**" sum(table[2:end, 2:end], 1)])
 
-MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table,1)], Symbol[:r, :r, :r, :r]))
+MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:r, :r, :r, :r]))
 ````
 
 
 
-<div class="markdown"><table><tr><th>Day</th><th>Elapsed &#40;s&#41;</th><th>Allocated &#40;bytes&#41;</th><th>Garbage Collection &#40;s&#41;</th></tr><tr><td>1</td><td>0.867567103</td><td>17516261</td><td>0.0</td></tr><tr><td>2</td><td>2.86301258</td><td>50228348</td><td>0.019407258</td></tr><tr><td>3</td><td>0.498929172</td><td>13195177</td><td>0.008656046</td></tr><tr><td>4</td><td>0.528930819</td><td>17934552</td><td>0.0</td></tr><tr><td>5</td><td>0.234561609</td><td>3929479</td><td>0.008399224</td></tr><tr><td>6</td><td>0.177288435</td><td>7678772</td><td>0.0</td></tr><tr><td>8</td><td>1.027152597</td><td>23257185</td><td>0.009987306</td></tr><tr><td>9</td><td>0.105061079</td><td>635426</td><td>0.0</td></tr><tr><td>10</td><td>0.151247505</td><td>2523171</td><td>0.0</td></tr><tr><td>11</td><td>3.031854148</td><td>129952499</td><td>0.036046839</td></tr><tr><td>**Median**</td><td>0.5139299955000001</td><td>1.5355719e7</td><td>0.004199612</td></tr><tr><td>**Total**</td><td>9.9995350425</td><td>2.82206589e8</td><td>0.086696285</td></tr></table>
+<div class="markdown"><table><tr><th>Day</th><th>Elapsed &#40;s&#41;</th><th>Allocated &#40;bytes&#41;</th><th>Garbage Collection &#40;s&#41;</th></tr><tr><td>1</td><td>0.811871435</td><td>17516261</td><td>0.0</td></tr><tr><td>2</td><td>2.7603779</td><td>50227676</td><td>0.017684984</td></tr><tr><td>3</td><td>0.481702348</td><td>13326329</td><td>0.008799943</td></tr><tr><td>4</td><td>0.52551307</td><td>17935224</td><td>0.0</td></tr><tr><td>5</td><td>0.22867854</td><td>3929479</td><td>0.008498935</td></tr><tr><td>6</td><td>0.192150014</td><td>7678772</td><td>0.0</td></tr><tr><td>8</td><td>1.078182455</td><td>23257505</td><td>0.008098936</td></tr><tr><td>9</td><td>0.105449657</td><td>635426</td><td>0.0</td></tr><tr><td>10</td><td>0.152542752</td><td>2523171</td><td>0.0</td></tr><tr><td>11</td><td>0.472064124</td><td>22320868</td><td>0.008967266</td></tr><tr><td><div class="markdown"><p><strong>Median</strong></p>
+</div></td><td>0.476883236</td><td>1.5421295e7</td><td>0.004049468</td></tr><tr><td><div class="markdown"><p><strong>Total</strong></p>
+</div></td><td>7.285415531</td><td>1.74772006e8</td><td>0.056099532</td></tr></table>
 </div>
