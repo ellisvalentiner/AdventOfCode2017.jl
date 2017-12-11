@@ -1,5 +1,5 @@
 
-function knothash(lengths::Array{Int64, 2}, list::UnitRange=0:255)
+function knothash(lengths::Array{Int, 2}, list::UnitRange=0:255)
     n = length(lengths)
     pos = 0
     skip = 0
