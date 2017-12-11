@@ -25,9 +25,10 @@ AdventOfCode2017.puzzle02:  0.000001 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle03:  0.000001 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle04:  0.000000 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle05:  0.000000 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle06:  0.000000 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle06:  0.000001 seconds (3 allocations: 144 bytes)
 AdventOfCode2017.puzzle08:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle09:  0.000000 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle09:  0.000001 seconds (3 allocations: 144 bytes)
+AdventOfCode2017.puzzle10:  0.000001 seconds (3 allocations: 144 bytes)
 ````
 
 
