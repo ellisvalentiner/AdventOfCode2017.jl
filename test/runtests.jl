@@ -13,4 +13,4 @@ end
 @test puzzle06() == [3156, 1610]
 @test puzzle08() == [6343, 7184]
 @test puzzle09() == [8337, 4330]
-@test puzzle09() == [826, nothing]
+@test puzzle10() == [826, nothing]
