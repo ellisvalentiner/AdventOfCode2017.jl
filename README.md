@@ -9,26 +9,26 @@
 
 ````julia
 using AdventOfCode2017
+using Base.Markdown
+import Base.Markdown: MD, Table
 
+table = ["Day" "Elapsed (s)" "Allocated (bytes)" "Garbage Collection (s)"]
 for puzzle in filter(x->x≠:AdventOfCode2017, names(AdventOfCode2017, false))
+    m = match(r"[0-9]+", String(puzzle))
+    day = string(parse(Int, m.match))
     @eval begin
-        print("$($puzzle):")
-        @time $puzzle
+        val, t, bytes, gctime, memallocs = @timed $puzzle()
+        row = [$day t bytes gctime]
+        table = vcat(table, row)
     end
 end
+table = vcat(table, ["**Median**" median(table[2:end, 2:end], 1)])
+table = vcat(table, ["**Total**" sum(table[2:end, 2:end], 1)])
+
+MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table,1)], Symbol[:r, :r, :r, :r]))
 ````
 
 
-````
-AdventOfCode2017.puzzle01:  0.000004 seconds (83 allocations: 6.092 KiB)
-AdventOfCode2017.puzzle02:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle03:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle04:  0.000000 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle05:  0.000000 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle06:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle08:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle09:  0.000001 seconds (3 allocations: 144 bytes)
-AdventOfCode2017.puzzle10:  0.000001 seconds (3 allocations: 144 bytes)
-````
 
-
+<div class="markdown"><table><tr><th>Day</th><th>Elapsed &#40;s&#41;</th><th>Allocated &#40;bytes&#41;</th><th>Garbage Collection &#40;s&#41;</th></tr><tr><td>1</td><td>0.788051036</td><td>17304421</td><td>0.008716064</td></tr><tr><td>2</td><td>2.760262371</td><td>50218460</td><td>0.018563418</td></tr><tr><td>3</td><td>0.526375468</td><td>13118313</td><td>0.010343026</td></tr><tr><td>4</td><td>0.502919179</td><td>17958264</td><td>0.0</td></tr><tr><td>5</td><td>0.241034313</td><td>3938791</td><td>0.0</td></tr><tr><td>6</td><td>0.205748191</td><td>7678820</td><td>0.010566574</td></tr><tr><td>8</td><td>1.077161145</td><td>23257953</td><td>0.009469696</td></tr><tr><td>9</td><td>0.106357503</td><td>635426</td><td>0.0</td></tr><tr><td>10</td><td>0.143202419</td><td>2522947</td><td>0.0</td></tr><tr><td>11</td><td>0.253982251</td><td>7831009</td><td>0.0</td></tr><tr><td>**Median**</td><td>0.37845071500000005</td><td>1.0474661e7</td><td>0.004358032</td></tr><tr><td>**Total**</td><td>6.983544590999999</td><td>1.54939065e8</td><td>0.06201681</td></tr></table>
+</div>
