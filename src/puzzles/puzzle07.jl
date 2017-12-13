@@ -1,8 +1,10 @@
 
+import Base.Iterators: flatten
+
 function puzzle07(path::String=joinpath(@__DIR__, "..", "data/07.txt"))
     input = readlines(path)
     programnames = matchall.(r"[a-zA-Z]+", input)
-    weights = parse.(Int, collect(Base.Iterators.Flatten(matchall.(r"[0-9]+", input))))
+    weights = parse.(Int, collect(flatten(matchall.(r"[0-9]+", input))))
     weights = [first.(programnames) weights]
 
     graph = Array{String}(0, 3)
