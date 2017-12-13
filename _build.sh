@@ -2,7 +2,7 @@
 set -e
 
 echo -e "\033[0;32mRunning tests...\033[0m"
-# julia -e 'Pkg.test("AdventOfCode2017");'
+julia -e 'Pkg.test("AdventOfCode2017");'
 
 echo -e "\033[0;32mRebuilding README.md...\033[0m"
 julia -e 'using Weave; weave("README.jl", "github");'

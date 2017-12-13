@@ -11,6 +11,7 @@ end
 @test puzzle04() == [386, 208]
 @test puzzle05() == [360603, 25347697]
 @test puzzle06() == [3156, 1610]
+@test puzzle07() == ["cyrupz", nothing]
 @test puzzle08() == [6343, 7184]
 @test puzzle09() == [8337, 4330]
 @test puzzle10() == [826, nothing]
