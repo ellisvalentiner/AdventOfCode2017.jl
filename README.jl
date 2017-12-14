@@ -30,4 +30,4 @@ table = vcat(table, [md"**Total**" sum(table[2:end, 2:end], 1)])
 #' ## Performance
 
 #+ echo=false
-MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:r, :l, :l, :l]))
+MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:l, :r, :r, :r]))
