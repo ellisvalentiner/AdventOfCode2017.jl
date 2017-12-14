@@ -17,7 +17,7 @@ for puzzle in filter(x->x≠:AdventOfCode2017, names(AdventOfCode2017, false))
     day = string(parse(Int, m.match))
     @eval begin
         val, t, bytes, gctime, memallocs = @timed $puzzle()
-        row = [$day t bytes/1024 gctime]
+        row = [$day @sprintf("%.4f", t) @sprintf("%.4f", bytes/1024) @sprintf("%.4f", gctime)]
         table = vcat(table, row)
     end
 end
