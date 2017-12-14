@@ -24,10 +24,10 @@ for puzzle in filter(x->x≠:AdventOfCode2017, names(AdventOfCode2017, false))
         table = vcat(table, row)
     end
 end
-table = vcat(table, [md"**Median**" median(table[2:end, 2:end], 1)])
-table = vcat(table, [md"**Total**" sum(table[2:end, 2:end], 1)])
+table = vcat(table, [md"**Median**" round(median(table[2:end, 2:end], 1)], 4))
+table = vcat(table, [md"**Total**" round(sum(table[2:end, 2:end], 1)], 4))
 
 #' ## Performance
 
 #+ echo=false
-MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:l, :r, :r, :r]))
+MD(Table(Any[map(x->Any[x], table[i, :]) for i in 1:size(table, 1)], Symbol[:l, :r, :r, :r]))
