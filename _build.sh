@@ -18,7 +18,8 @@ msg="README rebuilt using Weave"
 if [ $# -eq 1 ]
   then msg="$1"
 fi
-git commit -m "$msg"
+git commit -m "$msg" -q
 
 # Push source and build repos.
-git push origin $branch
+echo -e "\033[0;32mPushing to GitHub...\033[0m"
+git push origin $branch -q
