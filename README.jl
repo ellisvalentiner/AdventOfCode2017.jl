@@ -17,7 +17,10 @@ for puzzle in filter(x->x≠:AdventOfCode2017, names(AdventOfCode2017, false))
     day = string(parse(Int, m.match))
     @eval begin
         val, t, bytes, gctime, memallocs = @timed $puzzle()
-        row = [$day round(t, 4) round(bytes/1024, 4) round(gctime, 4)]
+        t = round(t, 4)
+        kib = round(bytes/1024, 4)
+        gctime = round(gctime, 4)
+        row = [$day t kib gctime]
         table = vcat(table, row)
     end
 end
@@ -27,4 +30,4 @@ table = vcat(table, [md"**Total**" sum(table[2:end, 2:end], 1)])
 #' ## Performance
 
 #+ echo=false
-MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:r, :r, :r, :r]))
+MD(Table(Any[map(x->Any[x], table[i,:]) for i in 1:size(table, 1)], Symbol[:r, :l, :l, :l]))
