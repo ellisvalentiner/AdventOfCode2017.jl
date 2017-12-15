@@ -3,11 +3,6 @@ function hex2binary(x::String)
     reduce(*, bin.(parse.(Int, collect(x)), 4))
 end
 
-function adjacentcoords(c::Tuple)
-    x, y = c
-    return [[(max(_x+x, 1), y) for _x=-1:2:1]; [(x, max(_x+y, 1)) for _x=-1:2:1]]
-end
-
 function puzzle14(input::String="jzgqcdpd")
     input = "jzgqcdpd"
     m = Matrix(128, 128);
