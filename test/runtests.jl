@@ -19,3 +19,4 @@ end
 @test puzzle12() == [115, 221]
 @test puzzle13() == [1580, 3943252]
 @test puzzle14() == [8074, 1212]
+@test puzzle15() == [609, 253]
