@@ -20,3 +20,4 @@ end
 @test puzzle13() == [1580, 3943252]
 @test puzzle14() == [8074, 1212]
 @test puzzle15() == [609, 253]
+@test puzzle16() == ["kgdchlfniambejop", "fjpmholcibdgeakn"]
