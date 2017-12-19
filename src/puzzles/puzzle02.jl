@@ -4,10 +4,11 @@ removediag(m::Matrix) = (m[diagind(m)]=1e-05)
 getintegers(m::Matrix) = m[find(isinteger.(m))]
 
 function puzzle02(path::String=joinpath(@__DIR__, "..", "data/02.txt"))
-    x = readdlm(path, Int)
-    partone = arrayrange(x, 2) |> sum
+    data = readdlm(path, Int)
+    extremes = extrema(data, 2)
+    partone = sum([last(x)-first(x) for x in extremes])
 
-    y = [x[i,:] ./ x[i,:]' for i in 1:size(x, 2)]
+    y = [data[i,:] ./ data[i,:]' for i in 1:size(data, 2)]
     removediag.(y)
     parttwo = Int(sum(getintegers.(y))[1])
 

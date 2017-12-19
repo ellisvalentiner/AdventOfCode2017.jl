@@ -7,7 +7,7 @@ function _f(a::String, offset::Int)
 end
 
 function puzzle01(path::String=joinpath(@__DIR__, "..", "data/01.txt"))
-    input = readline(normpath(path))
+    input = readline(path)
     solution = _f.(input, [1, Int(length(input)/2)])
     return solution
 end
