@@ -9,7 +9,7 @@ mul(x::String, y::Int) = registers[x] *= y
 mod(x::String, y::String) = registers[x] = rem(registers[x], registers[y])
 mod(x::String, y::Int) = registers[x] = rem(registers[x], y)
 rcv(x::String, y::String) = (registers[x] != 0) ? registers[x] = last(played) : nothing
-rcv(x::String, y::Int) =
+# rcv(x::String, y::Int) =
 
 function puzzle18(path::String=joinpath(@__DIR__, "..", "data/18.txt"))
 
