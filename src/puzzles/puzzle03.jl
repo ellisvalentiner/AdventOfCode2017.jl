@@ -1,9 +1,9 @@
 
 function puzzle03(input::Int=325489)
-    L = iseven(Int(ceil(√input))) ? ceil(√input)  + 1 : ceil(√input)
-    corners = L^2 - (0:3)*(L-1)
+    L = iseven(Int(ceil(√input))) ? ceil(√input) + 1 : ceil(√input)
+    corners = L^2 .- (0:3) .* (L-1)
     width = floor(L/2)
-    height = minimum(abs.((input+width)-corners))
+    height = minimum(abs.((input + width) .- corners))
     partone = Int(height + width)
 
     # initialize matrix

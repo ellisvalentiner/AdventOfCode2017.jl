@@ -1,9 +1,5 @@
 using AdventOfCode2017
-if VERSION < v"0.7"
-    using Base.Test
-else
-    using Test
-end
+using Test
 
 @test puzzle01() == [1203, 1146]
 @test puzzle02() == [32020, 236]

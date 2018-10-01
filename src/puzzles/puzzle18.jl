@@ -27,33 +27,37 @@ function puzzle18(path::String=joinpath(@__DIR__, "..", "data/18.txt"))
         command = instruction[1:3]
         x = instruction[5:5]
         y = instruction[7:end]
-
         if command == "snd"
             append!(played, registers[x])
             idx += 1
         elseif command == "set"
-            y = parse(y)
-            if typeof(y) == Symbol
+            try
+                y = parse(Int, y)
+            catch
                 y = registers[string(y)]
             end
             registers[x] = y
             idx += 1
         elseif command == "add"
-            y = parse(instruction[7:end])
+            y = parse(Int, instruction[7:end])
             if typeof(y) == Symbol
                 y = registers[string(y)]
             end
             registers[x] += y
             idx += 1
         elseif command == "mul"
-            y = parse(instruction[7:end])
+            y = parse(Int, instruction[7:end])
             if typeof(y) == Symbol
                 y = registers[string(y)]
             end
             registers[x] *= y
             idx += 1
         elseif command == "mod"
-            y = parse(instruction[7:end])
+            try
+                y = parse(Int, instruction[7:end])
+            catch
+                y = Symbol(instruction[7:end])
+            end
             if typeof(y) == Symbol
                 y = registers[string(y)]
             end
@@ -66,13 +70,13 @@ function puzzle18(path::String=joinpath(@__DIR__, "..", "data/18.txt"))
             end
             idx += 1
         elseif command == "jgz"
-            if typeof(parse(x)) == Int
-                x = parse(x)
-            else
+            try
+                x = parse(Int, x)
+            catch
                 x = registers[x]
             end
             if x > 0
-                idx += parse(instruction[7:end])
+                idx += parse(Int, instruction[7:end])
             else
                 idx += 1
             end

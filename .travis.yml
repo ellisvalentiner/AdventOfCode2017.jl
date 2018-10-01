@@ -9,7 +9,7 @@ julia:
 notifications:
   email: false
 git:
-  depth: 99999999
+  depth: 1
 matrix:
  allow_failures:
  - julia: nightly

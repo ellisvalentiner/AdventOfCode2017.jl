@@ -4,14 +4,14 @@ import Base.Iterators.Flatten
 function puzzle19(path::String=joinpath(@__DIR__, "..", "data/19.txt"))
     data = readlines(path)
     n = length(data)
-    m = Matrix(n, n)
+    m = Array{Any,2}(nothing, n, n)
     x = split.(data, "")
     for i in 1:n
         m[i, :] = x[i]
     end
 
     i = 1
-    j = findn(m[1, :] .== "|")[1]
+    j = findall(m[1, :] .== "|")[1]
     path = []
     found = []
     direction = "down"

@@ -3,11 +3,18 @@ import Base.Iterators: flatten
 
 function puzzle07(path::String=joinpath(@__DIR__, "..", "data/07.txt"))
     input = readlines(path)
-    programnames = matchall.(r"[a-zA-Z]+", input)
-    weights = parse.(Int, collect(flatten(matchall.(r"[0-9]+", input))))
+    programnames = []
+    weights = []
+    for line in input
+        append!(programnames, [[m.match for m in eachmatch(r"[a-zA-Z]+", line)]])
+        for m in eachmatch(r"[0-9]+", line)
+            w = parse(Int, m.match)
+            append!(weights, [w])
+        end
+    end
     weights = [first.(programnames) weights]
 
-    graph = Array{String}(0, 3)
+    graph = Array{Any}
     for i in 1:size(programnames, 1)
         program = programnames[i]
         parent = first(program)

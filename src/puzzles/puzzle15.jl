@@ -1,5 +1,5 @@
 
-check_match(a, b) = bin(a, 32)[17:32] == bin(b, 32)[17:32] ? 1 : 0
+check_match(a, b) = string(a, base=2, pad=32)[17:32] == string(b, base=2, pad=32)[17:32] ? 1 : 0
 
 function puzzle15(astart::Int=883, bstart::Int=879)
     a = copy(astart)
