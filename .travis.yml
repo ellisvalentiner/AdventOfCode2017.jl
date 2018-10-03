@@ -13,8 +13,8 @@ git:
 matrix:
  allow_failures:
  - julia: nightly
-script:
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia --track-allocation=user -e 'using Pkg; Pkg.add("Test"); Pkg.build(); Pkg.test("AdventOfCode2017"; coverage=true)'
 after_success:
-  - julia -e 'using Pkg; import AdventOfCode2017; cd(joinpath(dirname(pathof(AdventOfCode2017)), "..")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder()); Coveralls.submit(process_folder());'
+  # push coverage results to Coveralls
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  # push coverage results to Codecov
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
