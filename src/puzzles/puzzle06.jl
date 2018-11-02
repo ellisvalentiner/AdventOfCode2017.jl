@@ -8,12 +8,11 @@ function puzzle06(path::String=joinpath(@__DIR__, "..", "data/06.txt"))
 
     while notfound
         val, pos = findmax(data)
-
         data[pos] = 0
         for offset in 1:val
-            i = offset + pos
+            i = offset + pos[2]
             r = rem(i, n)
-            i = r==0 ? n: r
+            i = r==0 ? n : r
             data[i] += 1
         end
 

@@ -1,0 +1,8 @@
+name = "AdventOfCode2017"
+uuid = "563ea93a-ab61-5f87-9809-2b9d024b0b01"
+version = "1.0.0"
+
+[deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

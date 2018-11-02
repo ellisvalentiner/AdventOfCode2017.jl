@@ -1,8 +1,8 @@
 
 function puzzle08(path::String=joinpath(@__DIR__, "..", "data/08.txt"))
     instructions = readlines(path)
-    instructions = replace.(instructions, "inc", "+=")
-    instructions = replace.(instructions, "dec", "-=")
+    instructions = [replace(i, "inc" => "+=") for i in instructions]
+    instructions = [replace(i, "dec" => "-=") for i in instructions]
     registers = unique(first.(split.(instructions, " ")))
 
     for register in registers
@@ -12,13 +12,12 @@ function puzzle08(path::String=joinpath(@__DIR__, "..", "data/08.txt"))
 
     highest = 0
     for instruction in instructions
-        condition = parse(split(instruction, "if")[2])
-        consequence = parse(split(instruction, "if")[1])
-        @eval $condition ? $consequence : nothing
-        highest = max(highest, maximum(eval.(parse.(registers))))
+        consequence, condition = Meta.parse.(String.(split(instruction, "if")))
+        @eval $(condition) ? $(consequence) : nothing
+        highest = max(highest, maximum(eval.(Meta.parse.(registers))))
     end
 
-    partone = maximum(eval.(parse.(registers)))
+    partone = maximum(eval.(Meta.parse.(registers)))
 
     return [partone, highest]
 end

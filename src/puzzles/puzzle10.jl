@@ -36,7 +36,7 @@ function puzzle10(path::String=joinpath(@__DIR__, "..", "data/10.txt"))
     list = knothash(stringofbytes, iterations=64)
     sparsehash = reshape(list, 16, 16)
     densehash = [reduce(xor, sparsehash[:, i]) for i in 1:size(sparsehash, 2)]
-    parttwo = reduce(*, hex.(densehash, 2))
+    parttwo = reduce(*, lpad.(string.(densehash, base=16), 2, "0"))
 
     return [partone, parttwo]
 

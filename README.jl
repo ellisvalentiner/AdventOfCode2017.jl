@@ -8,8 +8,8 @@
 
 #+ echo=false
 using AdventOfCode2017
-using Base.Markdown
-import Base.Markdown: MD, Table
+using Markdown
+import Markdown: MD, Table
 
 table = ["Day" "Elapsed (s)" "Allocated (MiB)" "Garbage Collection (s)"]
 for puzzle in filter(x-> x≠ :AdventOfCode2017, names(AdventOfCode2017, false))
