@@ -26,8 +26,8 @@ for puzzle in filter(x-> x≠ :AdventOfCode2017, names(AdventOfCode2017))
         table = vcat(table, row)
     end
 end
-table = vcat(table, ["**Median**" round.(median(table[2:end, 2:end], 1), digits=4)])
-table = vcat(table, ["**Total**" round.(sum(table[2:end, 2:end], 1), digits=4)])
+table = vcat(table, ["**Median**" round.(median(table[2:end, 2:end], dims=1), digits=4)])
+table = vcat(table, ["**Total**" round.(sum(table[2:end, 2:end], dims=1), digits=4)])
 performance = MD(Table(Any[map(x->Any[x], table[i, :]) for i in 1:size(table, 1)], Symbol[:l, :r, :r, :r]))
 
 #' ## Performance
