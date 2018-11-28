@@ -10,6 +10,7 @@
 using AdventOfCode2017
 using Markdown
 import Markdown: MD, Table
+import Statistics: median
 
 table = ["Day" "Elapsed (s)" "Allocated (MiB)" "Garbage Collection (s)"]
 for puzzle in filter(x-> x≠ :AdventOfCode2017, names(AdventOfCode2017, false))

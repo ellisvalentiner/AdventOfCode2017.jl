@@ -14,7 +14,10 @@ Closest candidates are:
 
 
 <pre class="julia-error">
-ERROR: UndefVarError: median not defined
+ERROR: MethodError: no method matching median&#40;::Array&#123;String,2&#125;, ::Int64&#41;
+Closest candidates are:
+  median&#40;::AbstractArray; dims&#41; at /Users/osx/buildbot/slave/package_osx64/build/usr/share/julia/stdlib/v1.0/Statistics/src/Statistics.jl:750
+  median&#40;::Any&#41; at /Users/osx/buildbot/slave/package_osx64/build/usr/share/julia/stdlib/v1.0/Statistics/src/Statistics.jl:736
 </pre>
 
 

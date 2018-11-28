@@ -2,10 +2,10 @@
 set -e
 
 echo -e "\033[0;32mRunning tests...\033[0m"
-julia -e 'using Pkg; Pkg.test("AdventOfCode2017");'
+julia --project -e 'using Pkg; Pkg.test("AdventOfCode2017");'
 
 echo -e "\033[0;32mRebuilding README.md...\033[0m"
-julia -e 'using Weave; weave("README.jl", "github");'
+julia --project -e 'using Weave; weave("README.jl", "github");'
 
 # Get current branch
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
